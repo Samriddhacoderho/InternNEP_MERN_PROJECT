@@ -61,7 +61,7 @@ const Navbar = () => {
               <li>
                 <Link
                   to="/"
-                  className={`block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-white-700 md:p-0 md:text-${location.pathname==="/"?"blue":"white"}-500 md:hover:text-blue-700`}
+                  className={`block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-white-700 md:p-0 ${location.pathname==="/"?"md:text-blue-500":"md:text-white-500"} md:hover:text-blue-700`}
                   aria-current="page"
                 >
                   HOME
@@ -70,7 +70,7 @@ const Navbar = () => {
               <li>
                 <Link
                   to="/internship"
-                  className={`block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-white-700 md:p-0 md:text-${location.pathname==="/internship"?"blue":"white"}-500 md:hover:text-blue-700`}
+                  className={`block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-white-700 md:p-0 ${location.pathname==="/internship"?"md:text-blue-500":"md:text-white-500"} md:hover:text-blue-700`}
                 >
                   INTERNSHIPS
                 </Link>
@@ -78,7 +78,7 @@ const Navbar = () => {
               <li>
                 <Link
                   to="/"
-                  className={`block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-white-700 md:p-0 md:text-${location.pathname==="/services"?"blue":"white"}-500 md:hover:text-blue-700`}
+                  className={`block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-white-700 md:p-0 ${location.pathname==="/services"?"md:text-blue-500":"md:text-white-500"} md:hover:text-blue-700`}
                 >
                   SERVICES
                 </Link>
@@ -86,7 +86,7 @@ const Navbar = () => {
               <li>
                 <Link
                   to="/"
-                  className={`block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-white-700 md:p-0 md:text-${location.pathname==="/contact"?"blue":"white"}-500 md:hover:text-blue-700`}
+                  className={`block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-white-700 md:p-0 ${location.pathname==="/contact"?"md:text-blue-500":"md:text-white-500"} md:hover:text-blue-700`}
                 >
                   CONTACT
                 </Link>
@@ -94,7 +94,7 @@ const Navbar = () => {
               <li>
                 <Link
                   to="/"
-                  className={`block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-white-700 md:p-0 md:text-${location.pathname==="/costs"?"blue":"white"}-500 md:hover:text-blue-700`}
+                  className={`block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-white-700 md:p-0 ${location.pathname==="/costs"?"md:text-blue-500":"md:text-white-500"} md:hover:text-blue-700`}
                 >
                   COSTS
                 </Link>
@@ -102,7 +102,7 @@ const Navbar = () => {
               <li>
                 <Link
                   to="/"
-                  className={`block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-white-700 md:p-0 md:text-${location.pathname==="/testimonials"?"blue":"white"}-500 md:hover:text-blue-700`}
+                  className={`block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-white-700 md:p-0 ${location.pathname==="/testimonials"?"md:text-blue-500":"md:text-white-500"} md:hover:text-blue-700`}
                 >
                   TESTIMONIALS
                 </Link>
