@@ -1,13 +1,13 @@
-import React from 'react'
-import SliderImage from './home_components/SliderImage'
+import React from "react";
+import SliderImage from "./home_components/SliderImage";
 
 const Home = () => {
   return (
     <div>
-        <SliderImage/>
-        Hi
+      <SliderImage />
+      
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

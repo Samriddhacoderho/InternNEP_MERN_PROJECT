@@ -1,11 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { initCarousels } from 'flowbite';
+import { context } from "../../contexts/Context";
 
 const SliderImage = () => {
     useEffect(()=>{
         console.log("Reinitializing Carsousel")
         initCarousels();
     },[]);
+
+    const useCon=useContext(context)
 
   return (
     <div>
@@ -18,7 +21,7 @@ const SliderImage = () => {
           <div className="hidden duration-700 ease-in-out" data-carousel-item>
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Webb%27s_First_Deep_Field.jpg/1200px-Webb%27s_First_Deep_Field.jpg"
-              className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+              className={`absolute z-0 block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 ${useCon.dropdown?"blur-[2px]":"opacity-100"}`}
               alt="..."
             />
           </div>
@@ -51,7 +54,7 @@ const SliderImage = () => {
             />
           </div>
         </div>
-        <div className="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
+        <div className="absolute z-[1000] flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
           <button
             type="button"
             className="w-3 h-3 rounded-full"
@@ -90,7 +93,7 @@ const SliderImage = () => {
         </div>
         <button
           type="button"
-          className="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+          className="absolute top-0 start-0 z-[1000] flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
           data-carousel-prev
         >
           <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
@@ -114,7 +117,7 @@ const SliderImage = () => {
         </button>
         <button
           type="button"
-          className="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+          className="absolute top-0 end-0 z-[1000] flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
           data-carousel-next
         >
           <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">

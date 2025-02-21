@@ -1,14 +1,16 @@
-import React from "react";
-import { Link,useLocation } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { context } from "../contexts/Context";
 
 const Navbar = () => {
-  const location=useLocation()
+  const location = useLocation();
+  const useCon=useContext(context)
   return (
     <div>
       <nav className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <Link
-            to="https://flowbite.com/"
+            to="/"
             className="flex items-center space-x-3 rtl:space-x-reverse"
           >
             <img
@@ -61,24 +63,85 @@ const Navbar = () => {
               <li>
                 <Link
                   to="/"
-                  className={`block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-white-700 md:p-0 ${location.pathname==="/"?"md:text-blue-500":"md:text-white-500"} md:hover:text-blue-700`}
+                  className={`block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-white-700 md:p-0 ${
+                    location.pathname === "/"
+                      ? "md:text-blue-500"
+                      : "md:text-white-500"
+                  } md:hover:text-blue-700`}
                   aria-current="page"
                 >
                   HOME
                 </Link>
               </li>
-              <li>
+              <li
+                onMouseEnter={() => useCon.setdropdown(true)}
+                onMouseLeave={()=>useCon.setdropdown(false)}
+              >
                 <Link
                   to="/internship"
-                  className={`block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-white-700 md:p-0 ${location.pathname==="/internship"?"md:text-blue-500":"md:text-white-500"} md:hover:text-blue-700`}
+                  className={`block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-white-700 md:p-0 ${
+                    location.pathname === "/internship"
+                      ? "md:text-blue-500"
+                      : "md:text-white-500"
+                  } md:hover:text-blue-700`}
                 >
                   INTERNSHIPS
                 </Link>
+                {useCon.dropdown &&
+                  <div
+                    id="dropdown"
+                    class={`absolute z-50 mt-0.2 w-44 bg-white divide-y divide-gray-100 rounded-lg shadow-md dark:bg-gray-700 ${
+                      useCon.dropdown ? "block" : "hidden"
+                    }`}
+                  >
+                    <ul
+                      class="py-2 text-sm text-gray-700 dark:text-gray-200"
+                      aria-labelledby="dropdownDefaultButton"
+                    >
+                      <li>
+                        <a
+                          href="#"
+                          class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                        >
+                          Dashboard
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                        >
+                          Settings
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                        >
+                          Earnings
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                        >
+                          Sign out
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                }
               </li>
               <li>
                 <Link
                   to="/"
-                  className={`block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-white-700 md:p-0 ${location.pathname==="/services"?"md:text-blue-500":"md:text-white-500"} md:hover:text-blue-700`}
+                  className={`block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-white-700 md:p-0 ${
+                    location.pathname === "/services"
+                      ? "md:text-blue-500"
+                      : "md:text-white-500"
+                  } md:hover:text-blue-700`}
                 >
                   SERVICES
                 </Link>
@@ -86,7 +149,11 @@ const Navbar = () => {
               <li>
                 <Link
                   to="/"
-                  className={`block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-white-700 md:p-0 ${location.pathname==="/contact"?"md:text-blue-500":"md:text-white-500"} md:hover:text-blue-700`}
+                  className={`block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-white-700 md:p-0 ${
+                    location.pathname === "/contact"
+                      ? "md:text-blue-500"
+                      : "md:text-white-500"
+                  } md:hover:text-blue-700`}
                 >
                   CONTACT
                 </Link>
@@ -94,7 +161,11 @@ const Navbar = () => {
               <li>
                 <Link
                   to="/"
-                  className={`block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-white-700 md:p-0 ${location.pathname==="/costs"?"md:text-blue-500":"md:text-white-500"} md:hover:text-blue-700`}
+                  className={`block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-white-700 md:p-0 ${
+                    location.pathname === "/costs"
+                      ? "md:text-blue-500"
+                      : "md:text-white-500"
+                  } md:hover:text-blue-700`}
                 >
                   COSTS
                 </Link>
@@ -102,7 +173,11 @@ const Navbar = () => {
               <li>
                 <Link
                   to="/"
-                  className={`block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-white-700 md:p-0 ${location.pathname==="/testimonials"?"md:text-blue-500":"md:text-white-500"} md:hover:text-blue-700`}
+                  className={`block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-white-700 md:p-0 ${
+                    location.pathname === "/testimonials"
+                      ? "md:text-blue-500"
+                      : "md:text-white-500"
+                  } md:hover:text-blue-700`}
                 >
                   TESTIMONIALS
                 </Link>
