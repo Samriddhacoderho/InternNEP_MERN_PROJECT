@@ -21,7 +21,7 @@ const SliderImage = () => {
           <div className="hidden duration-700 ease-in-out" data-carousel-item>
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Webb%27s_First_Deep_Field.jpg/1200px-Webb%27s_First_Deep_Field.jpg"
-              className={`absolute z-0 block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 ${useCon.dropdown?"blur-[2px]":"opacity-100"}`}
+              className={`absolute z-0 block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2`}
               alt="..."
             />
           </div>
