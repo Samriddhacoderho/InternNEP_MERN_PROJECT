@@ -20,35 +20,35 @@ const SliderImage = () => {
         <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
           <div className="hidden duration-700 ease-in-out" data-carousel-item>
             <img
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Webb%27s_First_Deep_Field.jpg/1200px-Webb%27s_First_Deep_Field.jpg"
+              src="https://humanhealth.com.hk/en/service/detail/corporate-medical/upload/service/32/self/5c108ff960152.jpg"
               className={`absolute z-0 block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2`}
               alt="..."
             />
           </div>
           <div className="hidden duration-700 ease-in-out" data-carousel-item>
             <img
-              src="https://dwg31ai31okv0.cloudfront.net/images/Article_Images/ImageForArticle_549_17288689857007544.jpg"
+              src="https://www.performancecomputersolutions.com/wp-content/uploads/2023/08/spot-collaboration.jpg"
               className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
               alt="..."
             />
           </div>
           <div className="hidden duration-700 ease-in-out" data-carousel-item>
             <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeFaRHfFMgM8v0RpStlC_XU1cHRdFMsDPx1A&s"
+              src="https://cardsetter.com/images/img_2jdScSj6AcUFxQ4FG5q99u/creator-examples.jpg?fit=outside&w=1600"
               className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
               alt="..."
             />
           </div>
           <div className="hidden duration-700 ease-in-out" data-carousel-item>
             <img
-              src="https://www.bu.edu/files/2022/07/feat-STScI-01G7ETNMR8CBHQQ64R4CVA1E6T.jpg"
+              src="https://cdn.corporatefinanceinstitute.com/assets/professional-corporation.jpeg"
               className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
               alt="..."
             />
           </div>
           <div className="hidden duration-700 ease-in-out" data-carousel-item>
             <img
-              src="https://c02.purpledshub.com/uploads/sites/48/2020/04/Things-never-knew-astronomy-e454e5d.jpg"
+              src="https://jobs.washingtonpost.com/getasset/c19dd9cb-4241-4c5a-b192-6dea8e7045fe/"
               className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
               alt="..."
             />
@@ -93,7 +93,7 @@ const SliderImage = () => {
         </div>
         <button
           type="button"
-          className="absolute top-0 start-0 z-[1000] flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+          className="absolute top-0 start-0 z-[50] flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
           data-carousel-prev
         >
           <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
@@ -117,7 +117,7 @@ const SliderImage = () => {
         </button>
         <button
           type="button"
-          className="absolute top-0 end-0 z-[1000] flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+          className="absolute top-0 end-0 z-[50] flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
           data-carousel-next
         >
           <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
