@@ -4,14 +4,13 @@ import { context } from "../../contexts/Context";
 
 const SliderImage = () => {
     useEffect(()=>{
-        console.log("Reinitializing Carsousel")
         initCarousels();
     },[]);
 
     const useCon=useContext(context)
 
   return (
-    <div>
+    <div className="my-2">
       <div
         id="default-carousel"
         className="relative w-full"
