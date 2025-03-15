@@ -10,42 +10,42 @@ const SliderImage = () => {
     const useCon=useContext(context)
 
   return (
-    <div className="my-2">
+    <div className="my-2 z-0">
       <div
         id="default-carousel"
-        className="relative w-full"
+        className="relative w-full z-0"
         data-carousel="slide"
       >
-        <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
-          <div className="hidden duration-700 ease-in-out" data-carousel-item>
+        <div className="relative h-56 overflow-hidden rounded-lg md:h-96 z-0">
+          <div className="hidden duration-700 ease-in-out z-0" data-carousel-item>
             <img
               src="https://humanhealth.com.hk/en/service/detail/corporate-medical/upload/service/32/self/5c108ff960152.jpg"
               className={`absolute z-0 block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2`}
               alt="..."
             />
           </div>
-          <div className="hidden duration-700 ease-in-out" data-carousel-item>
+          <div className="hidden duration-700 ease-in-out z-0" data-carousel-item>
             <img
               src="https://www.performancecomputersolutions.com/wp-content/uploads/2023/08/spot-collaboration.jpg"
               className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
               alt="..."
             />
           </div>
-          <div className="hidden duration-700 ease-in-out" data-carousel-item>
+          <div className="hidden duration-700 ease-in-out z-0" data-carousel-item>
             <img
               src="https://cardsetter.com/images/img_2jdScSj6AcUFxQ4FG5q99u/creator-examples.jpg?fit=outside&w=1600"
               className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
               alt="..."
             />
           </div>
-          <div className="hidden duration-700 ease-in-out" data-carousel-item>
+          <div className="hidden duration-700 ease-in-out z-0" data-carousel-item>
             <img
               src="https://cdn.corporatefinanceinstitute.com/assets/professional-corporation.jpeg"
               className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
               alt="..."
             />
           </div>
-          <div className="hidden duration-700 ease-in-out" data-carousel-item>
+          <div className="hidden duration-700 ease-in-out z-0" data-carousel-item>
             <img
               src="https://jobs.washingtonpost.com/getasset/c19dd9cb-4241-4c5a-b192-6dea8e7045fe/"
               className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"

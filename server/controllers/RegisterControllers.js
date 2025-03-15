@@ -16,7 +16,7 @@ const registerController=async(req,res)=>{
             sameSite:"strict"
         })
         
-        res.send("Successfully inserted data.")
+        res.send("Registered Successfully")
         
     } catch (error) {
         res.status(404).send(error.message)

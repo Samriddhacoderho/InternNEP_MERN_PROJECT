@@ -8,6 +8,7 @@ import { useContext } from "react";
 import { context } from "../contexts/Context";
 
 const Register = () => {
+  const isLoggedin = document.cookie.includes("loginToken");
   const context_use=useContext(context)
   const navigate = useNavigate();
   const {
@@ -35,7 +36,7 @@ const Register = () => {
   }
 
   return (
-    <div>
+    (!context_use.isAuthenticated && !isLoggedin)?<div>
       <div className="flex items-center justify-center min-h-screen">
         <div className="flex items-center justify-center mx-auto  max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 w-full h-full">
           <form className="max-w-sm mx-auto" onSubmit={handleSubmit(onclick)}>
@@ -177,16 +178,12 @@ const Register = () => {
                   clip-rule="evenodd"
                 />
               </svg>
-              Or Register Via Social Media
+              Or Login Directly Via Social Media
             </button>
-            
-            {context_use.isAuthenticated &&
-              <button type="button" class="cursor-pointer text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" onClick={()=>context_use.logout()}>Logout</button>
-            }
             </form>
         </div>
       </div>
-    </div>
+    </div>:<div>You cannot access this page after logging in.</div>
   );
 };
 

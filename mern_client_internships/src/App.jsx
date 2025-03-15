@@ -25,7 +25,6 @@ const App = () => {
             <Route exact path="/content-internships" element={<ContentInternship/>}/>
             <Route exact path="/register" element={<Register/>}/>
             <Route exact path="/login" element={<Login/>}/>
-
           </Routes>
         </main>
         <Footer />

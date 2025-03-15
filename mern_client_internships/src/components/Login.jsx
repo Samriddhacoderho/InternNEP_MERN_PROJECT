@@ -3,8 +3,10 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { data, Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate=useNavigate();
   const {
     register,
     handleSubmit,
@@ -12,8 +14,21 @@ const Login = () => {
   } = useForm();
   const { user, loginWithRedirect, logout } = useAuth0();
 
-  const onclick = (data) => {
-    console.log(data);
+  const onclick = async(data) => {
+    try {
+      const response=await axios.post("http://localhost:8000/login",data,{withCredentials:true})
+      alert(response.data)
+      navigate("/")
+    } catch (error) {
+      if(error.response)
+      {
+        alert(error.response.data)
+      }
+      else
+      {
+        alert(error.message)
+      }
+    }
   };
   return (
     <div>
@@ -31,7 +46,6 @@ const Login = () => {
                 type="email"
                 id="email"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 w-70"
-                placeholder="name@flowbite.com"
                 {...register("email", { required: "This is a required field" })}
               />
             </div>

@@ -7,7 +7,7 @@ import ShowTestimonials from "./home_components/ShowTestimonials";
 const Home = () => {
   const useCon=useContext(context);
   return (
-    <div className={`${useCon.dropdown?"mt-56":""}`}>
+    <div>
       <SliderImage />   
       <Cardfirst/>
       <ShowTestimonials/>
