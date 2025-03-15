@@ -3,8 +3,28 @@ import { Link, useLocation } from "react-router-dom";
 import { context } from "../contexts/Context";
 
 const Navbar = () => {
+  const isLoggedin=document.cookie.includes("loginToken")
+  console.log(isLoggedin)
   const location = useLocation();
   const useCon=useContext(context)
+  const handleSignout=()=>{
+        // eslint-disable-next-line no-restricted-globals
+        if(confirm("Are you sure you want to sign out?"))
+        {
+          if(isLoggedin)
+          {
+          document.cookie =
+        "loginToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      localStorage.clear();
+      alert("You have been signed out");
+      window.location.reload();
+          }
+          else
+          {
+            useCon.logout()
+          }
+      }
+  }
   return (
     <div>
       <nav className={`bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600 ${location.pathname==="/" && useCon.dropdown?"h-55":""}`}>
@@ -22,7 +42,7 @@ const Navbar = () => {
               InternNEP
             </span>
           </Link>
-          <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+          {(!useCon.isAuthenticated && !isLoggedin) && <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
             <Link to={"/register"}>
             <button
               type="button"
@@ -31,7 +51,16 @@ const Navbar = () => {
               Get started
             </button>
             </Link>
-          </div>
+          </div>}
+          {(useCon.isAuthenticated || isLoggedin) && <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+            <button
+              type="button"
+              className="text-white cursor-pointer bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              onClick={handleSignout}
+            >
+              Log Out
+            </button>
+          </div>}
 
           <div
             className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
