@@ -1,4 +1,3 @@
-import React from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { data, Link } from "react-router-dom";
@@ -21,7 +20,8 @@ const Register = () => {
   const onclick = async (data) => {
     try {
       const response = await axios.post("http://localhost:8000/register", data,{withCredentials:true});
-      alert(response.data);
+      alert(response.data.success_msg);
+      context_use.setName(response.data.name)
       navigate("/");
     } catch (error) {
       if (error.response) {

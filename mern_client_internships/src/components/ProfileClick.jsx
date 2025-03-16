@@ -1,6 +1,7 @@
 import { Button, Drawer, Sidebar, TextInput } from "flowbite-react";
 import { useContext, useState } from "react";
 import { context } from "../contexts/Context";
+import { Link } from "react-router-dom";
 
 import {
   HiChartPie,
@@ -15,7 +16,35 @@ import {
 } from "react-icons/hi";
 
 const ProfileClick = () => {
-  const useCon = useContext(context);
+  let string=""
+  const useCon = useContext(context);  
+  if(useCon.isAuthenticated)
+  {
+    useCon.user.name.split(" ").map((person)=>{
+      string=string+person[0]  
+    })
+  }
+  else
+  {
+    if(!useCon.name.includes(" "))
+    {
+      if(useCon.name.length<=3)
+      {
+      string=useCon.name
+      }
+      else
+      {
+        string=useCon.name.slice(0,4)
+      }
+    }
+    else
+    {
+      useCon.name.split(" ").map((person)=>{
+        string=string+person[0]
+      })
+    }
+  }
+
   const isLoggedin = document.cookie.includes("loginToken");
   const handleSignout = () => {
     // eslint-disable-next-line no-restricted-globals
@@ -26,7 +55,6 @@ const ProfileClick = () => {
         localStorage.clear();
         window.location.reload();
       } else {
-        console.log("Hi");
         useCon.logout();
       }
     }
@@ -42,7 +70,7 @@ const ProfileClick = () => {
           {
             <div class="relative inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
               <span class="font-medium text-gray-600 dark:text-gray-300">
-                JL
+                {string}
               </span>
             </div>
           }
@@ -81,13 +109,7 @@ const ProfileClick = () => {
                       Users list
                     </Sidebar.Item>
                     <Sidebar.Item icon={HiLogin} onClick={handleSignout} className="cursor-pointer">
-                      Log Out
-                    </Sidebar.Item>
-                    <Sidebar.Item
-                      href="/authentication/sign-up"
-                      icon={HiPencil}
-                    >
-                      Sign up
+                      Sign Out
                     </Sidebar.Item>
                   </Sidebar.ItemGroup>
                   <Sidebar.ItemGroup>
@@ -109,6 +131,14 @@ const ProfileClick = () => {
                     >
                       Help
                     </Sidebar.Item>
+                    {isLoggedin && <Link to={"/edit-profile"}>
+                    <Sidebar.Item
+                    className="cursor-pointer"
+                      icon={HiUsers}
+                    >
+                      Edit your Profile
+                    </Sidebar.Item>
+                    </Link>}
                   </Sidebar.ItemGroup>
                 </Sidebar.Items>
               </div>

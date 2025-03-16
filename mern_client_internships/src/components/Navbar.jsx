@@ -7,7 +7,6 @@ const Navbar = () => {
   const isLoggedin = document.cookie.includes("loginToken");
   const location = useLocation();
   const useCon = useContext(context);
-  console.log(useCon.isAuthenticated)
   return (
     <div>
       <nav

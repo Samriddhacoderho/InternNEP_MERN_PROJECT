@@ -3,6 +3,7 @@ import connectTo from "./connections/db_conn.js";
 import { configDotenv } from "dotenv";
 import UserRoute from "./routes/userroute.js";
 import cors from "cors"
+import email_route from "./routes/emailroute.js";
 
 configDotenv();
 
@@ -18,8 +19,9 @@ app.use(cors({
 }))
 
 
-app.use("/", UserRoute);
 
+app.use("/", UserRoute);
+app.use("/email",email_route)
 
 connectTo();
 

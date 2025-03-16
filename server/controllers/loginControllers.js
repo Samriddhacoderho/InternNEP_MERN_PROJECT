@@ -23,7 +23,7 @@ const loginController=async(req,res)=>{
                 secure:true,
                 sameSite:"strict"
             })
-            res.send("Logged In Successfully")
+            res.json({"success_msg":"Logged In Successfully","name":result.name})
         }
 
     } catch (error) {

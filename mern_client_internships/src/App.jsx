@@ -10,6 +10,8 @@ import ITInternship from "./components/ITInternship";
 import ContentInternship from "./components/ContentInternship";
 import Register from "./components/Register";
 import Login from "./components/Login";
+import EditProfile from "./components/EditProfile";
+import TestComponent from "./components/TestComponent";
 
 const App = () => {
   return (
@@ -25,6 +27,8 @@ const App = () => {
             <Route exact path="/content-internships" element={<ContentInternship/>}/>
             <Route exact path="/register" element={<Register/>}/>
             <Route exact path="/login" element={<Login/>}/>
+            <Route exact path="/edit-profile" element={<EditProfile/>}/>
+            <Route exact path="/test" element={<TestComponent/>}/>
           </Routes>
         </main>
         <Footer />

@@ -4,8 +4,11 @@ import axios from "axios";
 import { data, Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { context } from "../contexts/Context";
 
 const Login = () => {
+  const context_use=useContext(context)
   const navigate=useNavigate();
   const {
     register,
@@ -17,7 +20,8 @@ const Login = () => {
   const onclick = async(data) => {
     try {
       const response=await axios.post("http://localhost:8000/login",data,{withCredentials:true})
-      alert(response.data)
+      alert(response.data.success_msg)
+      context_use.setName(response.data.name)
       navigate("/")
     } catch (error) {
       if(error.response)
