@@ -12,6 +12,7 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import EditProfile from "./components/EditProfile";
 import TestComponent from "./components/TestComponent";
+import EditPassword from "./components/EditPassword";
 
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
             <Route exact path="/login" element={<Login/>}/>
             <Route exact path="/edit-profile" element={<EditProfile/>}/>
             <Route exact path="/test" element={<TestComponent/>}/>
+            <Route exact path="/edit-password" element={<EditPassword/>}/>
           </Routes>
         </main>
         <Footer />

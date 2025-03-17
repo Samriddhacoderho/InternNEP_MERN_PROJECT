@@ -131,14 +131,17 @@ const ProfileClick = () => {
                     >
                       Help
                     </Sidebar.Item>
-                    {isLoggedin && <Link to={"/edit-profile"}>
+
+                    {isLoggedin && 
                     <Sidebar.Item
+                    as={Link}
+                    to={"/edit-profile"}
                     className="cursor-pointer"
                       icon={HiUsers}
                     >
                       Edit your Profile
                     </Sidebar.Item>
-                    </Link>}
+                    }
                   </Sidebar.ItemGroup>
                 </Sidebar.Items>
               </div>
