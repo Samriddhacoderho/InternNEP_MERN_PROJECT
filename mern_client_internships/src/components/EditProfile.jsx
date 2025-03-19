@@ -1,12 +1,30 @@
 import React, { useContext, useState } from "react";
 import { context } from "../contexts/Context";
 import { useForm } from "react-hook-form";
-import {Link } from "react-router-dom";
+import {Link, useNavigate } from "react-router-dom";
+import axios from "axios"
 
 const EditProfile = () => {
-  const onclick=(data)=>{
-    console.log(data)
-
+  const navigate=useNavigate()
+  const onclick=async(data)=>{
+    try {
+      if(window.confirm("Are you sure you want to change your username?"))
+      {
+      const response=await axios.patch("http://localhost:8000/edit-profile",data,{withCredentials:true})
+      alert(response.data)
+      context_use.setName(data.name)
+      navigate("/")
+      }
+    } catch (error) {
+      if(error.response)
+      {
+        alert(error.response.data)
+      }
+      else
+      {
+        alert(error.message)
+      }
+    }
   }
   const context_use = useContext(context);
   const {
@@ -40,14 +58,15 @@ const EditProfile = () => {
                 <p className="text-red-600 mb-2">{errors.name.message}</p>
               )}
             </div>
-            <Link to={"/edit-password"}><button type="button" class="cursor-pointer focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Reset Password</button></Link>
-            <br></br>
             <button
               type="submit"
-              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              className="cursor-pointer text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
               Update
             </button>
+            <br></br>
+            <Link to={"/edit-password"}><button type="button" class="my-2 cursor-pointer focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Reset Password</button></Link>
+            
           </form>
         </div>
       </div>

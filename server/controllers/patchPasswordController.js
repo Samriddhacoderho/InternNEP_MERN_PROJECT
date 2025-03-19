@@ -1,5 +1,3 @@
-import mongoose from "mongoose";
-import express from "express";
 import user_model from "../schema/UserRegSchema.js";
 import bcrypt from "bcryptjs";
 
@@ -16,8 +14,9 @@ const patchPassword=async(req,res)=>{
         }
         else
         {
+
             response.password=req.body.new_password
-            response.save()
+            await response.save()
             res.send("Your password was successfully changed.")
         }
     } catch (error) {

@@ -1,14 +1,19 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios"
 
 const EditPassword = () => {
+  const navigate=useNavigate()
     const {register,handleSubmit,watch,formState:{errors}}=useForm()
     const onclick=async(data)=>{
       try {
+        if(window.confirm("Are you sure you want to change your password?"))
+        {
         const result=await axios.patch("http://localhost:8000/change-password",data,{withCredentials:true})
         alert(result.data)
+        navigate("/")
+        }
       } catch (error) {
         if(error.response)
         {
@@ -100,33 +105,7 @@ const EditPassword = () => {
             type="submit"
             className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-full cursor-pointer px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
-            Register
-          </button>
-          <Link to="/login">
-            {" "}
-            <p className="dark:text-white hover:underline mt-3">
-              Already Have An Account?
-            </p>{" "}
-          </Link>
-          <button
-            type="button"
-            class="cursor-pointer mt-3 text-white bg-[#3b5998] hover:bg-[#3b5998]/90 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 me-2 mb-2"
-            onClick={()=>context_use.loginWithPopup()}
-          >
-            <svg
-              class="w-4 h-4 me-2"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="currentColor"
-              viewBox="0 0 8 19"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z"
-                clip-rule="evenodd"
-              />
-            </svg>
-            Or Login Directly Via Social Media
+            Update Password
           </button>
           </form>
       </div>
