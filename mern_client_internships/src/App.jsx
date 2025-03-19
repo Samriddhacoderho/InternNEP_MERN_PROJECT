@@ -13,6 +13,8 @@ import Login from "./components/Login";
 import EditProfile from "./components/EditProfile";
 import TestComponent from "./components/TestComponent";
 import EditPassword from "./components/EditPassword";
+import ResetPassword from "./components/ResetPassword";
+import PassVerificationForm from "./components/PassVerificationForm";
 
 const App = () => {
   return (
@@ -31,6 +33,8 @@ const App = () => {
             <Route exact path="/edit-profile" element={<EditProfile/>}/>
             <Route exact path="/test" element={<TestComponent/>}/>
             <Route exact path="/edit-password" element={<EditPassword/>}/>
+            <Route exact path="/reset-password" element={<ResetPassword/>}/>
+            <Route exact path="/reset-password/verification" element={<PassVerificationForm/>}/>
           </Routes>
         </main>
         <Footer />

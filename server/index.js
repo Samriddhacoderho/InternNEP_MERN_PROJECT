@@ -23,7 +23,7 @@ app.use(cookieParser())
 
 
 app.use("/", UserRoute);
-app.use("/email",email_route)
+app.use("/reset",email_route)
 
 connectTo();
 

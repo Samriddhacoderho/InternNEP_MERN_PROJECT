@@ -1,7 +1,7 @@
 import { Button, Drawer, Sidebar, TextInput } from "flowbite-react";
 import { useContext, useState } from "react";
 import { context } from "../contexts/Context";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import {
   HiChartPie,
@@ -16,6 +16,7 @@ import {
 } from "react-icons/hi";
 
 const ProfileClick = () => {
+  const navigate=useNavigate();
   let string=""
   const useCon = useContext(context);  
   if(useCon.isAuthenticated)
@@ -54,6 +55,7 @@ const ProfileClick = () => {
           "loginToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
         localStorage.clear();
         window.location.reload();
+        navigate("/")
       } else {
         useCon.logout();
       }

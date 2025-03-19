@@ -3,11 +3,11 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 
 const TestComponent = () => {
-    const {register,handleSubmit,formState:{errors}}=useForm();
+    const {register,handleSubmit,formState:{errors,isSubmitting}}=useForm();
 
     const onclick=async(data)=>{
         try {
-            const response=await axios.post("http://localhost:8000/email/nodemailer",data)
+            const response=await axios.post("http://localhost:8000/reset/password",data)
             alert(response.data.success_msg)
         } catch (error) {
             if(error.data)
@@ -85,6 +85,7 @@ const TestComponent = () => {
               </div>
             </div>
             <button
+            disabled={isSubmitting}
               type="submit"
               className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-full cursor-pointer px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
