@@ -1,11 +1,24 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import axios from "axios"
 
 const EditPassword = () => {
     const {register,handleSubmit,watch,formState:{errors}}=useForm()
-    const onclick=(data)=>{
-        console.log(data)
+    const onclick=async(data)=>{
+      try {
+        const result=await axios.patch("http://localhost:8000/change-password",data,{withCredentials:true})
+        alert(result.data)
+      } catch (error) {
+        if(error.response)
+        {
+          alert(error.response.data)
+        }
+        else
+        {
+          alert(error.message)
+        }
+      }
     }
   return (
     <div>

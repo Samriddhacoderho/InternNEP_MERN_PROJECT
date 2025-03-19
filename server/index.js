@@ -4,6 +4,7 @@ import { configDotenv } from "dotenv";
 import UserRoute from "./routes/userroute.js";
 import cors from "cors"
 import email_route from "./routes/emailroute.js";
+import cookieParser from "cookie-parser";
 
 configDotenv();
 
@@ -17,6 +18,7 @@ app.use(cors({
   origin:"http://localhost:5173",
   credentials:true
 }))
+app.use(cookieParser())
 
 
 

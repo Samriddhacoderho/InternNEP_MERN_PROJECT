@@ -20,7 +20,6 @@ const user_reg_schema=new mongoose.Schema({
     },
     confirm_password:{
         type:String,
-        required:true,
         validate:{
             validator:function(value){
                 return value===this.password
@@ -34,7 +33,6 @@ const user_reg_schema=new mongoose.Schema({
 user_reg_schema.pre("save",async function(next){
     if(!this.isModified("password"))
     {
-        console.log("Is this running?")
         next()
     }
     const hash=await bcrypt.hash(this.password,10)
