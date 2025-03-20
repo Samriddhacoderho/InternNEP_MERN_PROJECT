@@ -13,5 +13,6 @@ UserRoute.post("/login",loginController)
 UserRoute.patch("/change-password",tokenVerify,patchPassword)
 UserRoute.patch("/edit-profile",tokenVerify,patchProfile)
 UserRoute.patch("/reset-password",tokenVerify,patchResetPass)
+UserRoute.patch("/reset-password/noLog",patchResetPass)
 
 export default UserRoute;

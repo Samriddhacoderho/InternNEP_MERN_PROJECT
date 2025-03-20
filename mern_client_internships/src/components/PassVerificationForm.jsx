@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const PassVerificationForm = () => {
+  const isLoggedin=document.cookie.includes("loginToken")
   const location = useLocation();
   const {
     register,
@@ -20,9 +21,17 @@ const PassVerificationForm = () => {
         }
         else
         {
-            const response=await axios.patch("http://localhost:8000/reset-password",data,{withCredentials:true})
+          let response=null;
+          if(isLoggedin)
+          {
+            response=await axios.patch("http://localhost:8000/reset-password",{...data,email:location.state.email},{withCredentials:true})
+          }
+          else
+          {
+            response=await axios.patch("http://localhost:8000/reset-password/noLog",{...data,email:location.state.email},{withCredentials:true})
+          }
             alert(response.data)
-            navigate("/")
+            isLoggedin?navigate("/"):navigate("/login")
         }
     } catch (error) {
       if (error.response) {

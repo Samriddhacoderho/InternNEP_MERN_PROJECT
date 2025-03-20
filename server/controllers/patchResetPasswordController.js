@@ -3,7 +3,7 @@ import user_model from "../schema/UserRegSchema.js"
 
 const patchResetPass=async(req,res)=>{
     try {
-        const result=await user_model.findById(req.user.i_d)
+        const result=await user_model.findOne({email:req.body.email})
         if(await bcrypt.compare(req.body.new_password,result.password))
         {
             return res.status(404).send("New and old passwords cannot be same.")
