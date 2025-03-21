@@ -350,6 +350,18 @@ const Navbar = () => {
                   TESTIMONIALS
                 </Link>
               </li>
+              {(useCon.isAuthenticated || isLoggedin) &&<li>
+                <Link
+                  to="/your-cv"
+                  className={`block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-white-700 md:p-0 ${
+                    location.pathname === "/testimonials"
+                      ? "md:text-blue-500"
+                      : "md:text-white-500"
+                  } md:hover:text-blue-700`}
+                >
+                  YOUR CV
+                </Link>
+              </li>}
             </ul>
           </div>
         </div>

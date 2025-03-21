@@ -11,10 +11,11 @@ import ContentInternship from "./components/ContentInternship";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import EditProfile from "./components/EditProfile";
-import TestComponent from "./components/TestComponent";
 import EditPassword from "./components/EditPassword";
 import ResetPassword from "./components/ResetPassword";
 import PassVerificationForm from "./components/PassVerificationForm";
+import CreateCV from "./components/CreateCV";
+import YourCV from "./components/YourCV";
 
 const App = () => {
   return (
@@ -31,10 +32,11 @@ const App = () => {
             <Route exact path="/register" element={<Register/>}/>
             <Route exact path="/login" element={<Login/>}/>
             <Route exact path="/edit-profile" element={<EditProfile/>}/>
-            <Route exact path="/test" element={<TestComponent/>}/>
             <Route exact path="/edit-password" element={<EditPassword/>}/>
             <Route exact path="/reset-password" element={<ResetPassword/>}/>
             <Route exact path="/reset-password/verification" element={<PassVerificationForm/>}/>
+            <Route exact path="/your-cv" element={<YourCV/>}/>
+            <Route exact path="/create-cv" element={<CreateCV/>}/>
           </Routes>
         </main>
         <Footer />

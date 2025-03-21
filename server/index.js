@@ -5,6 +5,7 @@ import UserRoute from "./routes/userroute.js";
 import cors from "cors"
 import email_route from "./routes/emailroute.js";
 import cookieParser from "cookie-parser";
+import file_ROUTE from "./routes/filesRoute.js";
 
 configDotenv();
 
@@ -23,6 +24,7 @@ app.use(cookieParser())
 
 
 app.use("/", UserRoute);
+app.use("/",file_ROUTE)
 app.use("/reset",email_route)
 
 connectTo();

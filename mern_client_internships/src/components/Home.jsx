@@ -6,10 +6,11 @@ import ShowTestimonials from "./home_components/ShowTestimonials";
 
 const Home = () => {
   const useCon=useContext(context);
+  const isLoggedin=document.cookie.includes("loginToken")
   return (
     <div>
       <SliderImage />   
-      <Cardfirst/>
+      {(!useCon.isAuthenticated && !isLoggedin) && <Cardfirst/>}
       <ShowTestimonials/>
     </div>
     //hi
