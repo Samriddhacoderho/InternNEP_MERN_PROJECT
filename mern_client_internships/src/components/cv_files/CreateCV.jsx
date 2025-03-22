@@ -2,13 +2,15 @@ import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios"
 import { context } from "../../contexts/Context";
+import { useNavigate } from "react-router-dom";
 
 const CreateCV = () => {
+  const navigate=useNavigate()
   const isLoggedin = document.cookie.includes("loginToken");
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors,isSubmitting },
   } = useForm();
   const useCon=useContext(context)
   const onSubmit = async (data) => {
@@ -19,6 +21,7 @@ try {
         headers:"multipart/form-data"
       })
       alert(response.data)
+      navigate("/your-cv")
       
 } catch (error) {
   if(error.response)
@@ -59,8 +62,9 @@ try {
           <button
             type="submit"
             className="cursor-pointer mt-4 bg-blue-500 text-white px-4 py-2 rounded"
+            disabled={isSubmitting}
           >
-            Submit
+            {isSubmitting?"Submitting":"Submit"}
           </button>
         </form>
       </div>

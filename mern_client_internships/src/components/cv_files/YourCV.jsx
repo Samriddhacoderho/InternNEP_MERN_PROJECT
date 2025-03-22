@@ -13,16 +13,18 @@ const YourCV = () => {
     } else {
       setbtnText("Show Your CVs");
     }
-    try {
-      const response = await axios.get("http://localhost:8000/cvGet", {
-        withCredentials: true,
-      });
-      useCon.setFiles(response.data);
-    } catch (error) {
-      if (error.response) {
-        alert(error.response.data);
-      } else {
-        alert(error.message);
+    if (btnText === "Show Your CVs") {
+      try {
+        const response = await axios.get("http://localhost:8000/cvGet", {
+          withCredentials: true,
+        });
+        useCon.setFiles(response.data);
+      } catch (error) {
+        if (error.response) {
+          alert(error.response.data);
+        } else {
+          alert(error.message);
+        }
       }
     }
   };
@@ -38,9 +40,13 @@ const YourCV = () => {
       {btnText === "Hide Your CVs" ? (
         useCon.files ? (
           <div className="grid grid-cols-3 gap-32">
-            {useCon.files.map((file) => (
-              <CardYourCV fileName={file.fileName} />
-            ))}
+            {useCon.files.map((file) => {
+              return (
+                <div key={file._id}>
+                  <CardYourCV fileName={file.fileName}/>
+                </div>
+              );
+            })}
           </div>
         ) : (
           <>
@@ -48,7 +54,7 @@ const YourCV = () => {
               No files found
             </h5>
             <Link to={"/create-cv"}>
-              <p className="dark:text-black hover:underline mt-3">
+              <p className="text-red-500 text-xl font-semibold hover:underline mt-3">
                 Upload a CV
               </p>
             </Link>
