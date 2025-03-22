@@ -4,6 +4,7 @@ import multer from "multer"
 import path from "path"
 import tokenVerify from "../tokens/tokenVerify.js";
 import cv_get_controller from "../controllers/cvGetController.js";
+import cv_del_controller from "../controllers/cvDelController.js";
 
 const file_ROUTE=express.Router()
 
@@ -20,6 +21,6 @@ const upload=multer({storage:storage})
 
 file_ROUTE.post("/cvCreate",tokenVerify,upload.single("dropzone_file"),cv_make_controller)
 file_ROUTE.get("/cvGet",tokenVerify,cv_get_controller)
-
+file_ROUTE.delete("/delete/cv/:cvID",tokenVerify,cv_del_controller)
 
 export default file_ROUTE

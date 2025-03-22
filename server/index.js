@@ -24,7 +24,7 @@ app.use(express.static("public/files"))
 
 
 app.use("/", UserRoute);
-app.use("/",file_ROUTE)
+app.use("/files",file_ROUTE)
 app.use("/reset",email_route)
 
 connectTo();

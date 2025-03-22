@@ -41,7 +41,7 @@ const Login = () => {
           <form className="max-w-sm mx-auto" onSubmit={handleSubmit(onclick)}>
             <div className="mb-5">
               <label
-                htmlFor="email"
+                htmlhtmlhtmlhtmlhtmlFor="email"
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-yellow-500"
               >
                 Your email
@@ -59,7 +59,7 @@ const Login = () => {
 
             <div className="mb-5">
               <label
-                htmlFor="password"
+                htmlhtmlhtmlhtmlhtmlFor="password"
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-yellow-500"
               >
                 Your password

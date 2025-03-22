@@ -10,7 +10,6 @@ const Context = (props) => {
     return localStorage.getItem("name") || "User"
   });
   const [dropdown, setdropdown] = useState(false);
-  const [files,setFiles]=useState(null)
 
   useEffect(()=>{
     localStorage.setItem("name",name)
@@ -26,8 +25,6 @@ const Context = (props) => {
         loginWithPopup,
         logout,
         isAuthenticated,
-        files,
-        setFiles
       }}
     >
       {props.children}

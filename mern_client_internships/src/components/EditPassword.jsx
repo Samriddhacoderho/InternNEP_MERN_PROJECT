@@ -32,7 +32,7 @@ const EditPassword = () => {
         <form className="max-w-sm mx-auto" onSubmit={handleSubmit(onclick)}>
             <div className="mb-5">
               <label
-                htmlFor="password"
+                htmlhtmlFor="password"
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-yellow-500"
               >
                 Current Password
@@ -53,7 +53,7 @@ const EditPassword = () => {
 
             <div className="mb-5">
               <label
-                htmlFor="password"
+                htmlhtmlFor="password"
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-yellow-500"
               >
                 New password
@@ -79,7 +79,7 @@ const EditPassword = () => {
             </div>
             <div className="mb-5">
               <label
-                htmlFor="password"
+                htmlhtmlFor="password"
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-yellow-500"
               >
                 Confirm password

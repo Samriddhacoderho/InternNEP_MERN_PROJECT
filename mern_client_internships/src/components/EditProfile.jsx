@@ -39,7 +39,7 @@ const EditProfile = () => {
           <form className="max-w-sm mx-auto" onSubmit={handleSubmit(onclick)}>
             <div className="mb-5">
               <label
-                htmlFor="name"
+                htmlhtmlhtmlhtmlhtmlhtmlFor="name"
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-yellow-500"
               >
                 Your Name
@@ -65,7 +65,7 @@ const EditProfile = () => {
               Update
             </button>
             <br></br>
-            <Link to={"/edit-password"}><button type="button" class="my-2 cursor-pointer focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Reset Password</button></Link>
+            <Link to={"/edit-password"}><button type="button" className="my-2 cursor-pointer focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Reset Password</button></Link>
             
           </form>
         </div>

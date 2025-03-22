@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 const YourCV = () => {
   const useCon = useContext(context);
   const [btnText, setbtnText] = useState("Show Your CVs");
+  const [files, setFiles] = useState([]);
   const onclick = async () => {
     if (btnText === "Show Your CVs") {
       setbtnText("Hide Your CVs");
@@ -15,10 +16,14 @@ const YourCV = () => {
     }
     if (btnText === "Show Your CVs") {
       try {
-        const response = await axios.get("http://localhost:8000/cvGet", {
+        const response = await axios.get("http://localhost:8000/files/cvGet", {
           withCredentials: true,
         });
-        useCon.setFiles(response.data);
+        if (response.data.length > 0) {
+          setFiles(response.data);
+        } else {
+          setFiles([]);
+        }
       } catch (error) {
         if (error.response) {
           alert(error.response.data);
@@ -28,29 +33,29 @@ const YourCV = () => {
       }
     }
   };
+
   return (
     <div>
       <button
-        type="submit"
         onClick={onclick}
-        class="mt-2 cursor-pointer text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900 transition-transform duration-150 ease-in-out active:scale-90"
+        className="mt-2 cursor-pointer text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900 transition-transform duration-150 ease-in-out active:scale-90"
       >
         {btnText}
       </button>
       {btnText === "Hide Your CVs" ? (
-        useCon.files ? (
+        files.length > 0 ? (
           <div className="grid grid-cols-3 gap-32">
-            {useCon.files.map((file) => {
+            {files.map((file) => {
               return (
                 <div key={file._id}>
-                  <CardYourCV fileName={file.fileName}/>
+                  <CardYourCV fileName={file.fileName} fileID={file._id} />
                 </div>
               );
             })}
           </div>
         ) : (
           <>
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-black">
+            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-black">
               No files found
             </h5>
             <Link to={"/create-cv"}>

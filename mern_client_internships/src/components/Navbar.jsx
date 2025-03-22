@@ -39,7 +39,7 @@ const Navbar = () => {
             </div>
           )}
           {(useCon.isAuthenticated || isLoggedin) && (
-            <div class="relative items-center justify-center w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600 flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+            <div className="relative items-center justify-center w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600 flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
             <ProfileClick/>
           </div>
           )}
@@ -80,21 +80,21 @@ const Navbar = () => {
                 {useCon.dropdown && (
                   <div
                     id="mega-menu-icons-dropdown"
-                    class="absolute z-10 grid block w-auto grid-cols-2 text-sm bg-white border border-gray-100 rounded-lg shadow-md dark:border-gray-700 md:grid-cols-3 dark:bg-gray-700"
+                    className="absolute z-10 grid block w-auto grid-cols-2 text-sm bg-white border border-gray-100 rounded-lg shadow-md dark:border-gray-700 md:grid-cols-3 dark:bg-gray-700"
                   >
-                    <div class="p-4 pb-0 text-gray-900 md:pb-4 dark:text-white">
+                    <div className="p-4 pb-0 text-gray-900 md:pb-4 dark:text-white">
                       <ul
-                        class="space-y-4"
+                        className="space-y-4"
                         aria-labelledby="mega-menu-icons-dropdown-button"
                       >
                         <li>
                           <Link
                             to="#"
-                            class="flex items-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group"
+                            className="flex items-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group"
                           >
-                            <span class="sr-only">About us</span>
+                            <span className="sr-only">About us</span>
                             <svg
-                              class="w-3 h-3 me-2 text-gray-400 dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+                              className="w-3 h-3 me-2 text-gray-400 dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
                               aria-hidden="true"
                               xmlns="http://www.w3.org/2000/svg"
                               fill="currentColor"
@@ -108,11 +108,11 @@ const Navbar = () => {
                         <li>
                           <Link
                             to="#"
-                            class="flex items-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group"
+                            className="flex items-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group"
                           >
-                            <span class="sr-only">Library</span>
+                            <span className="sr-only">Library</span>
                             <svg
-                              class="w-3 h-3 me-2 text-gray-400 dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+                              className="w-3 h-3 me-2 text-gray-400 dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
                               aria-hidden="true"
                               xmlns="http://www.w3.org/2000/svg"
                               fill="currentColor"
@@ -128,11 +128,11 @@ const Navbar = () => {
                         <li>
                           <Link
                             to="#"
-                            class="flex items-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group"
+                            className="flex items-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group"
                           >
-                            <span class="sr-only">Resources</span>
+                            <span className="sr-only">Resources</span>
                             <svg
-                              class="w-3 h-3 me-2 text-gray-400 dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+                              className="w-3 h-3 me-2 text-gray-400 dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
                               aria-hidden="true"
                               xmlns="http://www.w3.org/2000/svg"
                               fill="currentColor"
@@ -147,11 +147,11 @@ const Navbar = () => {
                         <li>
                           <Link
                             to="#"
-                            class="flex items-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group"
+                            className="flex items-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group"
                           >
-                            <span class="sr-only">Pro Version</span>
+                            <span className="sr-only">Pro Version</span>
                             <svg
-                              class="w-3 h-3 me-2 text-gray-400 dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+                              className="w-3 h-3 me-2 text-gray-400 dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
                               aria-hidden="true"
                               xmlns="http://www.w3.org/2000/svg"
                               fill="currentColor"
@@ -164,16 +164,16 @@ const Navbar = () => {
                         </li>
                       </ul>
                     </div>
-                    <div class="p-4 pb-0 text-gray-900 md:pb-4 dark:text-white">
-                      <ul class="space-y-4">
+                    <div className="p-4 pb-0 text-gray-900 md:pb-4 dark:text-white">
+                      <ul className="space-y-4">
                         <li>
                           <Link
                             to="#"
-                            class="flex items-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group"
+                            className="flex items-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group"
                           >
-                            <span class="sr-only">Blog</span>
+                            <span className="sr-only">Blog</span>
                             <svg
-                              class="w-3 h-3 me-2 text-gray-400 dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+                              className="w-3 h-3 me-2 text-gray-400 dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
                               aria-hidden="true"
                               xmlns="http://www.w3.org/2000/svg"
                               fill="currentColor"
@@ -188,11 +188,11 @@ const Navbar = () => {
                         <li>
                           <Link
                             to="#"
-                            class="flex items-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group"
+                            className="flex items-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group"
                           >
-                            <span class="sr-only">Newsletter</span>
+                            <span className="sr-only">Newsletter</span>
                             <svg
-                              class="w-3 h-3 me-2 text-gray-400 dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+                              className="w-3 h-3 me-2 text-gray-400 dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
                               aria-hidden="true"
                               xmlns="http://www.w3.org/2000/svg"
                               fill="currentColor"
@@ -206,11 +206,11 @@ const Navbar = () => {
                         <li>
                           <Link
                             to="#"
-                            class="flex items-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group"
+                            className="flex items-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group"
                           >
-                            <span class="sr-only">Playground</span>
+                            <span className="sr-only">Playground</span>
                             <svg
-                              class="w-3 h-3 me-2 text-gray-400 dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+                              className="w-3 h-3 me-2 text-gray-400 dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
                               aria-hidden="true"
                               xmlns="http://www.w3.org/2000/svg"
                               fill="currentColor"
@@ -224,11 +224,11 @@ const Navbar = () => {
                         <li>
                           <Link
                             to="#"
-                            class="flex items-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group"
+                            className="flex items-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group"
                           >
-                            <span class="sr-only">License</span>
+                            <span className="sr-only">License</span>
                             <svg
-                              class="w-3 h-3 me-2 text-gray-400 dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+                              className="w-3 h-3 me-2 text-gray-400 dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
                               aria-hidden="true"
                               xmlns="http://www.w3.org/2000/svg"
                               fill="currentColor"
@@ -241,16 +241,16 @@ const Navbar = () => {
                         </li>
                       </ul>
                     </div>
-                    <div class="p-4 text-gray-900 dark:text-white">
-                      <ul class="space-y-4">
+                    <div className="p-4 text-gray-900 dark:text-white">
+                      <ul className="space-y-4">
                         <li>
                           <Link
                             to="#"
-                            class="flex items-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group"
+                            className="flex items-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group"
                           >
-                            <span class="sr-only">Contact Us</span>
+                            <span className="sr-only">Contact Us</span>
                             <svg
-                              class="w-3 h-3 me-2 text-gray-400 dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+                              className="w-3 h-3 me-2 text-gray-400 dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
                               aria-hidden="true"
                               xmlns="http://www.w3.org/2000/svg"
                               fill="currentColor"
@@ -264,11 +264,11 @@ const Navbar = () => {
                         <li>
                           <Link
                             to="#"
-                            class="flex items-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group"
+                            className="flex items-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group"
                           >
-                            <span class="sr-only">Support Center</span>
+                            <span className="sr-only">Support Center</span>
                             <svg
-                              class="w-3 h-3 me-2 text-gray-400 dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+                              className="w-3 h-3 me-2 text-gray-400 dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
                               aria-hidden="true"
                               xmlns="http://www.w3.org/2000/svg"
                               fill="currentColor"
@@ -282,11 +282,11 @@ const Navbar = () => {
                         <li>
                           <Link
                             to="#"
-                            class="flex items-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group"
+                            className="flex items-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group"
                           >
-                            <span class="sr-only">Terms</span>
+                            <span className="sr-only">Terms</span>
                             <svg
-                              class="w-3 h-3 me-2 text-gray-400 dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+                              className="w-3 h-3 me-2 text-gray-400 dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
                               aria-hidden="true"
                               xmlns="http://www.w3.org/2000/svg"
                               fill="currentColor"

@@ -17,8 +17,8 @@ const CreateCV = () => {
 try {
       const fileData=new FormData()
       fileData.append("dropzone_file",data.dropzone_file[0])
-      const response=await axios.post("http://localhost:8000/cvCreate",fileData,{withCredentials:true},{
-        headers:"multipart/form-data"
+      const response=await axios.post("http://localhost:8000/files/cvCreate",fileData,{withCredentials:true,
+        headers:{"Content-Type":"multipart/form-data"}
       })
       alert(response.data)
       navigate("/your-cv")
@@ -39,13 +39,13 @@ try {
       <div className="mt-30 flex items-center justify-center mx-auto  max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 w-full h-full">
         <form onSubmit={handleSubmit(onSubmit)}>
           <label
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            for="large_size"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            htmlFor="large_size"
           >
             Large file input
           </label>
           <input
-            class="block w-full text-lg text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+            className="block w-full text-lg text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
             id="large_size"
             type="file"
             accept="pdf"
