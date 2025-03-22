@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
-import { context } from "../contexts/Context";
 import { useForm } from "react-hook-form";
 import axios from "axios"
+import { context } from "../../contexts/Context";
 
 const CreateCV = () => {
   const isLoggedin = document.cookie.includes("loginToken");
@@ -10,8 +10,7 @@ const CreateCV = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const useCon = useContext(context);
-
+  const useCon=useContext(context)
   const onSubmit = async (data) => {
 try {
       const fileData=new FormData()
@@ -20,6 +19,7 @@ try {
         headers:"multipart/form-data"
       })
       alert(response.data)
+      
 } catch (error) {
   if(error.response)
   {
@@ -62,7 +62,6 @@ try {
           >
             Submit
           </button>
-          
         </form>
       </div>
     </div>

@@ -20,7 +20,7 @@ app.use(cors({
   credentials:true
 }))
 app.use(cookieParser())
-
+app.use(express.static("public/files"))
 
 
 app.use("/", UserRoute);

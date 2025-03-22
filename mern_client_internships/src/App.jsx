@@ -14,8 +14,8 @@ import EditProfile from "./components/EditProfile";
 import EditPassword from "./components/EditPassword";
 import ResetPassword from "./components/ResetPassword";
 import PassVerificationForm from "./components/PassVerificationForm";
-import CreateCV from "./components/CreateCV";
-import YourCV from "./components/YourCV";
+import YourCV from "./components/cv_files/YourCV";
+import CreateCV from "./components/cv_files/CreateCV";
 
 const App = () => {
   return (
