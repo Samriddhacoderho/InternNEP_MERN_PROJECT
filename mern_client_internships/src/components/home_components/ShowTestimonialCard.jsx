@@ -18,7 +18,7 @@ const ShowTestimonialCard = (props) => {
             {name}
           </span>
         </div>
-        <Rating value={stars} />
+        <Rating unratedColor="red" ratedColor="red" value={stars} readonly />
         <p className="text-sm font-normal py-2.5 text-gray-900 dark:text-white">
           {revMsg.length>40?revMsg.slice(0,40)+"...":revMsg}
         </p>
