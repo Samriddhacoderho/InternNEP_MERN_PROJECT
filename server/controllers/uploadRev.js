@@ -6,11 +6,11 @@ const uploadRev=async(req,res)=>{
         result=await review_model.findOne({user:req.user.i_d})
         if(!result)
         {
-            result=await review_model.create({user:req.user.i_d,stars:req.body.stars,revMsg:req.body.revMsg})
+            result=await review_model.create({user:req.user.i_d,name:req.body.name,stars:req.body.stars,revMsg:req.body.revMsg})
         }
         else
         {
-            result=await review_model.updateOne({user:req.user.i_d},{stars:req.body.stars,revMsg:req.body.revMsg})
+            result=await review_model.updateOne({user:req.user.i_d},{name:req.body.name,stars:req.body.stars,revMsg:req.body.revMsg})
         }
         res.send("Review Stored Successfully")
     } catch (error) {

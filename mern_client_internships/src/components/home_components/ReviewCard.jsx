@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Rating } from "@material-tailwind/react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import { context } from "../../contexts/Context";
 
 const ReviewCard = () => {
+  const useCon=useContext(context)
   const {
     register,
     handleSubmit,
@@ -14,7 +16,7 @@ const ReviewCard = () => {
     try {
       const repsonse = await axios.post(
         "http://localhost:8000/uploadRev",
-        { ...data, stars: stars },
+        { ...data,name:useCon.name,stars: stars },
         { withCredentials: true }
       );
       alert(repsonse.data);
