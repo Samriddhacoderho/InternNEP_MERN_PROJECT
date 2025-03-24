@@ -22,6 +22,8 @@ const YourCV = () => {
             setSuc(true)
             setTimeout(() => {
               setSuc(false)
+              useCon.setsucMsg(null)
+
             }, 2000);
           }
           else
@@ -29,6 +31,7 @@ const YourCV = () => {
             setErr(true)
             setTimeout(() => {
               setErr(false)
+              useCon.setsucMsg(null)
             }, 2000);
           }
         }

@@ -28,6 +28,7 @@ const ReviewCard = () => {
       useCon.setsucMsg(repsonse.data)
       setTimeout(() => {
         setshowSuc(false)
+        useCon.setsucMsg(null)
       }, 2000);
     } catch (error) {
       if (error.repsonse) {
@@ -38,8 +39,8 @@ const ReviewCard = () => {
       setshowErr(true)
       setTimeout(() => {
         setshowErr(false)
+        useCon.setsucMsg(null)
       }, 2000);
-      useCon.setsucMsg(null)
     }
   };
   return (

@@ -9,7 +9,7 @@ const cv_make_controller=async(req,res)=>{
             return res.status(404).send("This file already exists.")
         }
         const res_ult=await cv_model.create({user:req.user.i_d,fileName:req.file.originalname})
-        res.send("Stored in database")
+        res.send("Successfully uploaded CV")
     } catch (error) {
         res.status(404).send(error.message)
     }
