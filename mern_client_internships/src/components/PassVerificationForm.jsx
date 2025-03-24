@@ -1,9 +1,15 @@
 import axios from "axios";
-import React from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useLocation, useNavigate } from "react-router-dom";
+import { context } from "../contexts/Context";
+import Success from "./alerts&prompts/Success";
+import Error from "./alerts&prompts/Error";
 
 const PassVerificationForm = () => {
+  const useCon=useContext(context)
+  const [suc,setSuc]=useState(false)
+  const [err,setErr]=useState(false)
   const isLoggedin=document.cookie.includes("loginToken")
   const location = useLocation();
   const {
@@ -17,7 +23,12 @@ const PassVerificationForm = () => {
     try {
         if(Number(data.verification)!==location.state.resetCode)
         {
-            alert("Incorrect Verification Code.")
+            setErr(true)
+            useCon.setsucMsg("Incorrect verification code")
+            setTimeout(() => {
+              setErr(false)
+              useCon.setsucMsg(null)
+            }, 2000);
         }
         else
         {
@@ -30,19 +41,32 @@ const PassVerificationForm = () => {
           {
             response=await axios.patch("http://localhost:8000/reset-password/noLog",{...data,email:location.state.email},{withCredentials:true})
           }
-            alert(response.data)
-            isLoggedin?navigate("/"):navigate("/login")
+            setSuc(true)
+            useCon.setsucMsg(response.data)
+            setTimeout(() => {
+              setSuc(false)
+              useCon.setsucMsg(null)
+              isLoggedin?navigate("/"):navigate("/login")
+            }, 2000);
         }
     } catch (error) {
       if (error.response) {
-        alert(error.response.data);
+        setErr(true)
+        useCon.setsucMsg(error.response.data)
       } else {
-        alert(error.message)  
-    }
+        setErr(true)
+        useCon.setsucMsg(error.message)
+      }
+      setTimeout(() => {
+        setErr(false)
+        useCon.setsucMsg(null)
+      }, 2000);
     }
   };
   return (
     <div>
+      {suc && <Success/>}
+      {err && <Error/>}
       <div className="flex items-center justify-center min-h-screen">
         <div className="flex items-center justify-center mx-auto  max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 w-full h-full">
           <form className="max-w-sm mx-auto" onSubmit={handleSubmit(onclick)}>

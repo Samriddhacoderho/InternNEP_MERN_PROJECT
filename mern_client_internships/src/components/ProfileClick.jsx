@@ -40,7 +40,7 @@ const ProfileClick = () => {
     }
     else
     {
-      useCon.name.split(" ").map((person)=>{
+      useCon.name.trim().split(" ").map((person)=>{
         string=string+person[0]
       })
     }

@@ -1,39 +1,58 @@
 import React, { useContext, useState } from "react";
 import { context } from "../contexts/Context";
 import { useForm } from "react-hook-form";
-import {Link, useNavigate } from "react-router-dom";
-import axios from "axios"
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import Success from "./alerts&prompts/Success";
+import Error from "./alerts&prompts/Error";
 
 const EditProfile = () => {
-  const navigate=useNavigate()
-  const onclick=async(data)=>{
+  const [suc, setSuc] = useState(false);
+  const [err, setErr] = useState(false);
+  const navigate = useNavigate();
+  const onclick = async (data) => {
     try {
-      if(window.confirm("Are you sure you want to change your username?"))
-      {
-      const response=await axios.patch("http://localhost:8000/edit-profile",data,{withCredentials:true})
-      alert(response.data)
-      context_use.setName(data.name)
-      navigate("/")
+      if (window.confirm("Are you sure you want to change your username?")) {
+        const response = await axios.patch(
+          "http://localhost:8000/edit-profile",
+          data,
+          { withCredentials: true }
+        );
+        context_use.setName(data.name);
+        setSuc(true);
+        context_use.setsucMsg(response.data);
+        setTimeout(() => {
+          setSuc(false);
+          context_use.setsucMsg(null);
+          navigate("/");
+        }, 2000);
+        
       }
     } catch (error) {
-      if(error.response)
-      {
-        alert(error.response.data)
+      if (error.response) {
+        setErr(true);
+        context_use.setsucMsg(error.response.data);
+      } else {
+        setErr(true);
+        context_use.setsucMsg(error.response.data);
       }
-      else
-      {
-        alert(error.message)
-      }
+      setTimeout(() => {
+        setErr(false)
+        context_use.setsucMsg(null)
+      }, 2000);
     }
-  }
+  };
   const context_use = useContext(context);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   return (
     <div>
+      {suc && <Success/>}
+      {err && <Error />}
       <div className="flex items-center justify-center min-h-screen">
         <div className="flex items-center justify-center mx-auto  max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 w-dvh h-89">
           <form className="max-w-sm mx-auto" onSubmit={handleSubmit(onclick)}>
@@ -54,7 +73,7 @@ const EditProfile = () => {
                   maxLength: { value: 50, message: "Too Long Name" },
                 })}
               />
-              {errors.name &&  (
+              {errors.name && (
                 <p className="text-red-600 mb-2">{errors.name.message}</p>
               )}
             </div>
@@ -65,8 +84,14 @@ const EditProfile = () => {
               Update
             </button>
             <br></br>
-            <Link to={"/edit-password"}><button type="button" className="my-2 cursor-pointer focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Reset Password</button></Link>
-            
+            <Link to={"/edit-password"}>
+              <button
+                type="button"
+                className="my-2 cursor-pointer focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+              >
+                Reset Password
+              </button>
+            </Link>
           </form>
         </div>
       </div>

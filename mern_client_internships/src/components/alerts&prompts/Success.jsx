@@ -19,12 +19,12 @@ const icon=()=> {
   );
 }
  
-const Success=()=> {
+const Success=(props)=> {
   const useCon=useContext(context)
   return (
     <Alert
       icon={icon}
-      className="rounded-none border-l-4 border-[#2ec946] bg-[#2ec946]/10 font-medium text-[#2ec946]"
+      className={`rounded-none border-l-4 border-[#2ec946] bg-[#2ec946]/10 font-medium text-[#2ec946]`}
     >
       {useCon.sucMsg}
     </Alert>
