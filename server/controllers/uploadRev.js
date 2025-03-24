@@ -12,7 +12,7 @@ const uploadRev=async(req,res)=>{
         {
             result=await review_model.updateOne({user:req.user.i_d},{name:req.body.name,stars:req.body.stars,revMsg:req.body.revMsg})
         }
-        res.send("Review Stored Successfully")
+        res.send("Successfully Submitted the Review")
     } catch (error) {
         res.status(404).send(error.message)
     }

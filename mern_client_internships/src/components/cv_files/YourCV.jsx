@@ -1,13 +1,42 @@
 import axios from "axios";
-import React, { useContext, useState } from "react";
+import React, { use, useContext, useEffect, useState } from "react";
 import { context } from "../../contexts/Context";
 import CardYourCV from "./CardYourCV";
 import { Link } from "react-router-dom";
+import Success from "../alerts&prompts/Success";
+import Error from "../alerts&prompts/Error";
 
 const YourCV = () => {
   const useCon = useContext(context);
   const [btnText, setbtnText] = useState("Show Your CVs");
   const [files, setFiles] = useState([]);
+  const [suc, setSuc] = useState(false);
+  const [err, setErr] = useState(false);
+
+  useEffect(()=>{
+    const fetchFunc=()=>{
+      if(useCon.sucMsg)
+        {
+          if(useCon.sucMsg.includes("Successfully"))
+          {
+            setSuc(true)
+            setTimeout(() => {
+              setSuc(false)
+            }, 2000);
+          }
+          else
+          {
+            setErr(true)
+            setTimeout(() => {
+              setErr(false)
+            }, 2000);
+          }
+        }
+    }
+
+    fetchFunc();
+  },[useCon.sucMsg])
+
   const onclick = async () => {
     if (btnText === "Show Your CVs") {
       setbtnText("Hide Your CVs");
@@ -36,6 +65,8 @@ const YourCV = () => {
 
   return (
     <div>
+      {suc && <Success />}
+      {err && <Error/>}
       <button
         onClick={onclick}
         className="mt-2 cursor-pointer text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900 transition-transform duration-150 ease-in-out active:scale-90"

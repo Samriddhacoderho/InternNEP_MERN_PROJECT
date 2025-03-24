@@ -1,7 +1,10 @@
 import axios from "axios";
-import React from "react";
+import React, { useContext } from "react";
+import Success from "../alerts&prompts/Success";
+import { context } from "../../contexts/Context";
 
 const CardYourCV = (props) => {
+  const useCon=useContext(context)
   const onclick = async () => {
     if (window.confirm("Are you sure you want to delete this CV?")) {
       try {
@@ -9,12 +12,12 @@ const CardYourCV = (props) => {
           `http://localhost:8000/files/delete/cv/${props.fileID}`,
           { withCredentials: true }
         );
-        alert(response.data);
+        useCon.setsucMsg(response.data)
       } catch (error) {
         if (error.response) {
-          alert(error.response.data);
+          useCon.setsucMsg(error.response.data)
         } else {
-          alert(error.message);
+          useCon.setsucMsg(error.message)
         }
       }
     }
@@ -41,9 +44,9 @@ const CardYourCV = (props) => {
           >
             <path
               stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
               d="M1 5h12m0 0L9 1m4 4L9 9"
             />
           </svg>
@@ -54,6 +57,7 @@ const CardYourCV = (props) => {
         >
           Delete CV
         </button>
+
       </div>
     </div>
   );
