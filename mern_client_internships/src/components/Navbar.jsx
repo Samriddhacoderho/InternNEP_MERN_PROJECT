@@ -11,7 +11,7 @@ const Navbar = () => {
   return (
     <div>
       <nav
-        className={`bg-white dark:bg-gray-900 fixed w-full z-0 top-0 start-0 border-b border-gray-200 dark:border-gray-600`}
+        className={`bg-white dark:bg-gray-900 fixed w-full z-50 top-0 start-0 border-b border-gray-200 dark:border-gray-600`}
       >
         {useCon.showProg && <ProgressBar/>}
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">

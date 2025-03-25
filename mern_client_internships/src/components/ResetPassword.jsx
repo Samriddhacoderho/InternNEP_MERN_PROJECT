@@ -26,18 +26,22 @@ const ResetPassword = () => {
           data,
           { withCredentials: true }
         );
+        useCon.setshowProg(true)
       } else {
         response = await axios.post(
           "http://localhost:8000/reset/password/noLog",
           data,
           { withCredentials: true }
         );
+        useCon.setshowProg(true)
       }
+      console.log("Is this being hit")
       setSuc(true)
       useCon.setsucMsg(response.data.success_msg)
       setTimeout(() => {
         setSuc(false)
         useCon.setsucMsg(null)
+        useCon.setshowProg(false)
         navigate("/reset-password/verification", {
           state: { resetCode: response.data.resetCode,email:data.email},
         });

@@ -43,9 +43,11 @@ const PassVerificationForm = () => {
           }
             setSuc(true)
             useCon.setsucMsg(response.data)
+            useCon.setshowProg(true)
             setTimeout(() => {
               setSuc(false)
               useCon.setsucMsg(null)
+              useCon.setshowProg(false)
               isLoggedin?navigate("/"):navigate("/login")
             }, 2000);
         }

@@ -3,8 +3,10 @@ import axios from "axios";
 import { data, Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
+import { context_usetext, useContext, useState } from "react";
 import { context } from "../contexts/Context";
+import Success from "./alerts&prompts/Success";
+import Error from "./alerts&prompts/Error";
 
 const Register = () => {
   const isLoggedin = document.cookie.includes("loginToken");
@@ -16,17 +18,33 @@ const Register = () => {
     formState: { errors, isSubmitting },
     watch,
   } = useForm();
-  //hi
+  const [suc,setSuc]=useState(false);
+  const [err,setErr]=useState(false);
   const onclick = async (data) => {
     try {
       const response = await axios.post("http://localhost:8000/register", data,{withCredentials:true});
-      alert(response.data.success_msg);
+      setSuc(true)
+      context_use.setsucMsg(response.data.success_msg);
       context_use.setName(response.data.name)
-      navigate("/");
+      context_use.setshowProg(true)
+      setTimeout(() => {
+        setSuc(false)
+        context_use.setsucMsg(null)
+        context_use.setshowProg(false)
+        navigate("/");
+      }, 2000);
     } catch (error) {
       if (error.response) {
-        alert(error.response.data);
+        setErr(true)
+        context_use.setsucMsg(error.response.data)
+      } else {
+        setErr(true)
+        context_use.setsucMsg(error.message)
       }
+      setTimeout(() => {
+        setErr(false)
+        context_use.setsucMsg(null)
+      }, 2000);
     }
   };
 
@@ -36,7 +54,11 @@ const Register = () => {
   }
 
   return (
+    
     (!context_use.isAuthenticated && !isLoggedin)?<div>
+      {suc && <Success/>}
+      {err && <Error/>}
+      {}
       <div className="flex items-center justify-center min-h-screen">
         <div className="flex items-center justify-center mx-auto  max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 w-full h-full">
           <form className="max-w-sm mx-auto" onSubmit={handleSubmit(onclick)}>

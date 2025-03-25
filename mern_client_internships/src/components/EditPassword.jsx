@@ -27,9 +27,11 @@ const EditPassword = () => {
         );
         setSuc(true);
         useCon.setsucMsg(result.data);
+        useCon.setshowProg(true)
         setTimeout(() => {
           setSuc(false);
           useCon.setsucMsg(null);
+          useCon.setshowProg(false)
           navigate("/");
         }, 2000);
       }

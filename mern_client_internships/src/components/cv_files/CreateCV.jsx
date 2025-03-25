@@ -31,11 +31,13 @@ const CreateCV = () => {
       );
       setSuc(true)
       useCon.setsucMsg(response.data)
+      useCon.setshowProg(true)
       setTimeout(() => {
         setSuc(false)
         useCon.setsucMsg(null)
+        useCon.setshowProg(false)
+        navigate("/your-cv");
       }, 2000);
-      navigate("/your-cv");
     } catch (error) {
       if (error.response) {
         setErr(true)

@@ -21,9 +21,11 @@ const EditProfile = () => {
         context_use.setName(data.name);
         setSuc(true);
         context_use.setsucMsg(response.data);
+        context_use.setshowProg(true)
         setTimeout(() => {
           setSuc(false);
           context_use.setsucMsg(null);
+          context_use.setshowProg(false)
           navigate("/");
         }, 2000);
         

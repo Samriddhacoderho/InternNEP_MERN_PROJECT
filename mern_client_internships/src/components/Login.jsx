@@ -1,41 +1,60 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { data, Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
+import { context_usetext } from "react";
 import { context } from "../contexts/Context";
+import Success from "./alerts&prompts/Success";
+import Error from "./alerts&prompts/Error";
 
 const Login = () => {
-  const context_use=useContext(context)
-  const navigate=useNavigate();
+  const context_use = useContext(context);
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm();
   const { user, loginWithRedirect, logout } = useAuth0();
+  const [suc, setSuc] = useState(false);
+  const [err, setErr] = useState(false);
 
-  const onclick = async(data) => {
+  const onclick = async (data) => {
     try {
-      const response=await axios.post("http://localhost:8000/login",data,{withCredentials:true})
-      alert(response.data.success_msg)
+      const response = await axios.post("http://localhost:8000/login", data, {
+        withCredentials: true,
+      });
+      setSuc(true)
+      context_use.setsucMsg(response.data.success_msg);
+      context_use.setName(response.data.name);
       context_use.setName(response.data.name)
-      navigate("/")
+      context_use.setshowProg(true)
+      setTimeout(() => {
+        setSuc(false)
+        context_use.setsucMsg(null)
+        context_use.setshowProg(false)
+        navigate("/");
+      }, 2000);
     } catch (error) {
-      if(error.response)
-      {
-        alert(error.response.data)
+      if (error.response) {
+        setErr(true)
+        context_use.setsucMsg(error.response.data)
+      } else {
+        setErr(true)
+        context_use.setsucMsg(error.message)
       }
-      else
-      {
-        alert(error.message)
-      }
+      setTimeout(() => {
+        setErr(false)
+        context_use.setsucMsg(null)
+      }, 2000);
     }
   };
   return (
     <div>
+      {suc && <Success/>}
+      {err && <Error/>}
       <div className="flex items-center justify-center min-h-screen">
         <div className="flex items-center justify-center mx-auto  max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 w-dvh h-89">
           <form className="max-w-sm mx-auto" onSubmit={handleSubmit(onclick)}>
@@ -82,11 +101,13 @@ const Login = () => {
             )}
             <Link to="/reset-password">
               {" "}
-              <p className="dark:text-white hover:underline mb-4">Forgot Password</p>{" "}
+              <p className="dark:text-white hover:underline mb-4">
+                Forgot Password
+              </p>{" "}
             </Link>
             <button
               type="submit"
-              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              className="cursor-pointer text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
               Submit
             </button>

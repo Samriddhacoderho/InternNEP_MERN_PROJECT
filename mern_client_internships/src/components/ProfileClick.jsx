@@ -51,11 +51,16 @@ const ProfileClick = () => {
     // eslint-disable-next-line no-restricted-globals
     if (confirm("Are you sure you want to sign out?")) {
       if (isLoggedin) {
-        document.cookie =
+        useCon.setshowProg(true)
+        setTimeout(() => {
+          document.cookie =
           "loginToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
         localStorage.clear();
-        window.location.reload();
-        navigate("/")
+          window.location.reload();
+          useCon.setshowProg(false)
+          navigate("/")          
+        }, 2000);
+
       } else {
         useCon.logout();
       }
