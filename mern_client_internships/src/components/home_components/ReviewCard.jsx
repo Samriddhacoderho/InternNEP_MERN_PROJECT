@@ -25,10 +25,12 @@ const ReviewCard = () => {
         { withCredentials: true }
       );
       setshowSuc(true);
+      useCon.setshowProg(true)
       useCon.setsucMsg(repsonse.data)
       setTimeout(() => {
         setshowSuc(false)
         useCon.setsucMsg(null)
+        useCon.setshowProg(false)
       }, 2000);
     } catch (error) {
       if (error.repsonse) {

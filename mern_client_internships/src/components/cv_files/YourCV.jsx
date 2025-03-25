@@ -20,10 +20,11 @@ const YourCV = () => {
           if(useCon.sucMsg.includes("Successfully"))
           {
             setSuc(true)
+            useCon.setshowProg(true)
             setTimeout(() => {
               setSuc(false)
               useCon.setsucMsg(null)
-
+              useCon.setshowProg(false)
             }, 2000);
           }
           else

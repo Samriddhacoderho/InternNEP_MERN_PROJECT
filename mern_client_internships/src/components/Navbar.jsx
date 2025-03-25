@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Context, { context } from "../contexts/Context";
 import ProfileClick from "./ProfileClick";
+import ProgressBar from "./alerts&prompts/ProgressBar";
 
 const Navbar = () => {
   const isLoggedin = document.cookie.includes("loginToken");
@@ -10,8 +11,9 @@ const Navbar = () => {
   return (
     <div>
       <nav
-        className={`bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600`}
+        className={`bg-white dark:bg-gray-900 fixed w-full z-0 top-0 start-0 border-b border-gray-200 dark:border-gray-600`}
       >
+        {useCon.showProg && <ProgressBar/>}
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <Link
             to="/"

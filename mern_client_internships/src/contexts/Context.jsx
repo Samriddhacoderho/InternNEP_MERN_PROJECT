@@ -11,6 +11,7 @@ const Context = (props) => {
   });
   const [dropdown, setdropdown] = useState(false);
   const [sucMsg,setsucMsg]=useState()
+  const [showProg,setshowProg]=useState(false)
 
   useEffect(()=>{
     localStorage.setItem("name",name)
@@ -27,7 +28,9 @@ const Context = (props) => {
         logout,
         isAuthenticated,
         sucMsg,
-        setsucMsg
+        setsucMsg,
+        showProg,
+        setshowProg
       }}
     >
       {props.children}
