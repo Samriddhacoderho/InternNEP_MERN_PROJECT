@@ -27,11 +27,11 @@ const Register = () => {
       context_use.setsucMsg(response.data.success_msg);
       context_use.setName(response.data.name)
       context_use.setshowProg(true)
+      navigate("/")
       setTimeout(() => {
         setSuc(false)
         context_use.setsucMsg(null)
         context_use.setshowProg(false)
-        navigate("/");
       }, 2000);
     } catch (error) {
       if (error.response) {

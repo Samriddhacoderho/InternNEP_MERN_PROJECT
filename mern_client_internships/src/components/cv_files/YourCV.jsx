@@ -25,6 +25,7 @@ const YourCV = () => {
               setSuc(false)
               useCon.setsucMsg(null)
               useCon.setshowProg(false)
+              window.location.reload()
             }, 2000);
           }
           else

@@ -10,6 +10,7 @@ import Success from "./alerts&prompts/Success";
 import Error from "./alerts&prompts/Error";
 
 const Login = () => {
+  const isLoggedin=document.cookie.includes("loginToken")
   const context_use = useContext(context);
   const navigate = useNavigate();
   const {
@@ -31,11 +32,12 @@ const Login = () => {
       context_use.setName(response.data.name);
       context_use.setName(response.data.name)
       context_use.setshowProg(true)
+      navigate("/");
+
       setTimeout(() => {
         setSuc(false)
         context_use.setsucMsg(null)
         context_use.setshowProg(false)
-        navigate("/");
       }, 2000);
     } catch (error) {
       if (error.response) {
@@ -52,7 +54,7 @@ const Login = () => {
     }
   };
   return (
-    <div>
+    (!context_use.isAuthenticated && !isLoggedin)?<div>
       {suc && <Success/>}
       {err && <Error/>}
       <div className="flex items-center justify-center min-h-screen">
@@ -118,7 +120,7 @@ const Login = () => {
           </form>
         </div>
       </div>
-    </div>
+    </div>:<div>You cannot access this page after logging in</div>
   );
 };
 

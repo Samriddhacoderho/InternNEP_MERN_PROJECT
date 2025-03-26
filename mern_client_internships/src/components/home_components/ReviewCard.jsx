@@ -31,6 +31,7 @@ const ReviewCard = () => {
         setshowSuc(false)
         useCon.setsucMsg(null)
         useCon.setshowProg(false)
+        window.location.reload()
       }, 2000);
     } catch (error) {
       if (error.repsonse) {
