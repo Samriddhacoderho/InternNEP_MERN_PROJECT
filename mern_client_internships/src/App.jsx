@@ -13,6 +13,8 @@ import ResetPassword from "./components/ResetPassword";
 import PassVerificationForm from "./components/PassVerificationForm";
 import YourCV from "./components/cv_files/YourCV";
 import CreateCV from "./components/cv_files/CreateCV";
+import Health_Internships from "./components/internships_area/Health_Internships";
+import Web_Developer_Internships from "./components/internships_area/Web_Developer_Internships";
 
 const App = () => {
   return (
@@ -31,6 +33,9 @@ const App = () => {
             <Route exact path="/reset-password/verification" element={<PassVerificationForm/>}/>
             <Route exact path="/your-cv" element={<YourCV/>}/>
             <Route exact path="/create-cv" element={<CreateCV/>}/>
+            <Route exact path="/health-internships" element={<Health_Internships/>}/>
+            <Route exact path="/webdev-internships" element={<Web_Developer_Internships/>}/>
+            
           </Routes>
         </main>
         <Footer />

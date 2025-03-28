@@ -12,9 +12,9 @@ import {
       <Card className="mt-6 w-96 h-80">
         <CardHeader color="blue-gray" className="relative h-56">
           <img
-            src={props.internshipImage}
+            src={"https://cdn.britannica.com/70/2970-050-796F522C/Flag-Nepal.jpg"}
             height="20px"
-            alt="No Image Found"
+            alt="https://cdn.britannica.com/70/2970-050-796F522C/Flag-Nepal.jpg"
           />
         </CardHeader>
         <CardBody>
