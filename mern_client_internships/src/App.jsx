@@ -17,6 +17,7 @@ import Internships_Category from "./components/internships_area/Internships_Cate
 
 
 const App = () => {
+  const isLoggedin=document.cookie.includes("loginToken")
   return (
     <Context>
       <BrowserRouter>

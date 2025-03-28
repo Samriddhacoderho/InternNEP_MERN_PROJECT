@@ -5,12 +5,13 @@ import Spin from "../alerts&prompts/spin";
 import InternshipCard from "../InternshipCard";
 
 const Internships_Category = (props) => {
+  const isLoggedin=document.cookie.includes("loginToken")
   const [internships, setInternships] = useState([]);
   const {
     handleSubmit,
     formState: { isSubmitting },
   } = useForm();
-  useEffect(() => {
+  isLoggedin && useEffect(() => {
     const fetchInternships = async () => {
       try {
         const response = await axios.post(
@@ -44,7 +45,7 @@ const Internships_Category = (props) => {
   }, []);
 
   return (
-    <div>
+    isLoggedin?<div>
       {console.log(internships)}
       {!internships.length && (
         <div className="flex items-center">
@@ -66,7 +67,7 @@ const Internships_Category = (props) => {
             );
           })}
       </div>
-    </div>
+    </div>:<div>You cannot access this page without logging in</div>
   );
 };
 
