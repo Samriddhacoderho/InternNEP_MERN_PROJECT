@@ -33,14 +33,14 @@ const App = () => {
             <Route exact path="/reset-password/verification" element={<PassVerificationForm/>}/>
             <Route exact path="/your-cv" element={<YourCV/>}/>
             <Route exact path="/create-cv" element={<CreateCV/>}/>
-            <Route exact path="/internships/health" element={<Internships_Category cat={"medical"}/>}/>
-            <Route exact path="/internships/webdev" element={<Internships_Category cat={"web-developer"}/>}/>
-            <Route exact path="/internships/mobdev" element={<Internships_Category cat={"mobile-developer"}/>}/>
-            <Route exact path="/internships/sofdev" element={<Internships_Category cat={"software-developer"}/>}/>
-            <Route exact path="/internships/content-writing" element={<Internships_Category cat={"content-writing"}/>}/>
-            <Route exact path="/internships/content-creator" element={<Internships_Category cat={"content-creator"}/>}/>
-            <Route exact path="/internships/teachers-assistant" element={<Internships_Category cat={"teacher's assistant"}/>}/>
-            <Route exact path="/internships/graduates-assistant" element={<Internships_Category cat={"graduate's assistant"}/>}/>
+            <Route exact path="/internships/health" element={<Internships_Category key="medical"  cat={"medical"}/>}/>
+            <Route exact path="/internships/webdev" element={<Internships_Category key="web-developer" cat={"web-developer"}/>}/>
+            <Route exact path="/internships/mobdev" element={<Internships_Category key="mobile-developer" cat={"mobile-developer"}/>}/>
+            <Route exact path="/internships/sofdev" element={<Internships_Category key="software-developer" cat={"software-developer"}/>}/>
+            <Route exact path="/internships/content-writing" element={<Internships_Category key="content-writing" cat={"content-writing"}/>}/>
+            <Route exact path="/internships/content-creator" element={<Internships_Category key="content-creator" cat={"content-creator"}/>}/>
+            <Route exact path="/internships/teachers-assistant" element={<Internships_Category  key="teacher's assistant" cat={"teacher's assistant"}/>}/>
+            <Route exact path="/internships/graduates-assistant" element={<Internships_Category key="graduate's assistant"  cat={"graduate's assistant"}/>}/>
           </Routes>
         </main>
         <Footer />
