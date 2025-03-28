@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import Spin from "../alerts&prompts/spin";
 import InternshipCard from "../InternshipCard";
 
-const Mob_Developer_Internships = () => {
+const Internships_Category = (props) => {
   const [internships, setInternships] = useState([]);
   const {
     handleSubmit,
@@ -21,7 +21,7 @@ const Mob_Developer_Internships = () => {
               {
                 role: "user",
                 content:
-                  "Give me 12 newly available internships (in Mobile Development field) in this format: [{ internshipTitle: '', internshipLink: 'actual and valid link so that I could click there and read more about that intern, or apply'}]. Only return pure JSON, start your response directly. and text should not be bold or any formatting.",
+                  `Give me 12 newly available internships (in ${props.cat}field) in this format: [{ internshipTitle: '', internshipLink: 'actual and valid link so that I could click there and read more about that intern, or apply',internshipImage:'valid image url so that when i use it with img tag in html, it works and gives me a valid image'}]. Only return pure JSON, start your response directly. and text should not be bold or any formatting.`,
               },
             ],
           },
@@ -48,7 +48,7 @@ const Mob_Developer_Internships = () => {
       {console.log(internships)}
       {!internships.length && (
         <div className="flex items-center">
-          <p >Hold on a while as we load health-related internships..</p>
+          <p >Hold on a while as we load {props.cat}-related internships..</p>
           <Spin />
         </div>
       )}
@@ -60,6 +60,7 @@ const Mob_Developer_Internships = () => {
                 <InternshipCard
                   internshipTitle={internship.internshipTitle}
                   internshipLink={internship.internshipLink}
+                  internshipImage={internship.internshipImage}
                 />
               </div>
             );
@@ -69,4 +70,4 @@ const Mob_Developer_Internships = () => {
   );
 };
 
-export default Mob_Developer_Internships;
+export default Internships_Category;

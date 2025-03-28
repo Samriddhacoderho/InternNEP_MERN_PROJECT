@@ -91,7 +91,7 @@ const Navbar = () => {
                       >
                         <li>
                           <Link
-                            to="/webdev-internships"
+                            to="/internships/health"
                             className="flex items-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group"
                           >
                             <span className="sr-only">Health Internships</span>
@@ -109,7 +109,7 @@ const Navbar = () => {
                         </li>
                         <li>
                           <Link
-                            to="#"
+                            to="/internships/webdev"
                             className="flex items-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group"
                           >
                             <span className="sr-only">Web Development Internships</span>
@@ -129,7 +129,7 @@ const Navbar = () => {
                         </li>
                         <li>
                           <Link
-                            to="#"
+                            to="/internships/mobdev"
                             className="flex items-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group"
                           >
                             <span className="sr-only">Mobile Development Internships</span>
@@ -148,7 +148,7 @@ const Navbar = () => {
                         </li>
                         <li>
                           <Link
-                            to="#"
+                            to="/internships/sofdev"
                             className="flex items-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group"
                           >
                             <span className="sr-only">Software Development Internships</span>
@@ -170,7 +170,7 @@ const Navbar = () => {
                       <ul className="space-y-4">
                         <li>
                           <Link
-                            to="#"
+                            to="/internships/content-writing"
                             className="flex items-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group"
                           >
                             <span className="sr-only">Content-Writing Internships</span>
@@ -189,7 +189,7 @@ const Navbar = () => {
                         </li>
                         <li>
                           <Link
-                            to="#"
+                            to="/internships/content-creator"
                             className="flex items-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group"
                           >
                             <span className="sr-only">Content-Creator Internships</span>
@@ -207,7 +207,7 @@ const Navbar = () => {
                         </li>
                         <li>
                           <Link
-                            to="#"
+                            to="/internships/teachers-assistant"
                             className="flex items-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group"
                           >
                             <span className="sr-only">Teacher's Assistant</span>
@@ -225,7 +225,7 @@ const Navbar = () => {
                         </li>
                         <li>
                           <Link
-                            to="#"
+                            to="/internships/graduates-assistant"
                             className="flex items-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group"
                           >
                             <span className="sr-only">Graduate Assistant</span>

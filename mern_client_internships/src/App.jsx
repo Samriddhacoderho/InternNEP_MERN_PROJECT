@@ -13,8 +13,8 @@ import ResetPassword from "./components/ResetPassword";
 import PassVerificationForm from "./components/PassVerificationForm";
 import YourCV from "./components/cv_files/YourCV";
 import CreateCV from "./components/cv_files/CreateCV";
-import Health_Internships from "./components/internships_area/Health_Internships";
-import Web_Developer_Internships from "./components/internships_area/Web_Developer_Internships";
+import Internships_Category from "./components/internships_area/Internships_Category";
+
 
 const App = () => {
   return (
@@ -33,9 +33,14 @@ const App = () => {
             <Route exact path="/reset-password/verification" element={<PassVerificationForm/>}/>
             <Route exact path="/your-cv" element={<YourCV/>}/>
             <Route exact path="/create-cv" element={<CreateCV/>}/>
-            <Route exact path="/health-internships" element={<Health_Internships/>}/>
-            <Route exact path="/webdev-internships" element={<Web_Developer_Internships/>}/>
-            
+            <Route exact path="/internships/health" element={<Internships_Category cat={"medical"}/>}/>
+            <Route exact path="/internships/webdev" element={<Internships_Category cat={"web-developer"}/>}/>
+            <Route exact path="/internships/mobdev" element={<Internships_Category cat={"mobile-developer"}/>}/>
+            <Route exact path="/internships/sofdev" element={<Internships_Category cat={"software-developer"}/>}/>
+            <Route exact path="/internships/content-writing" element={<Internships_Category cat={"content-writing"}/>}/>
+            <Route exact path="/internships/content-creator" element={<Internships_Category cat={"content-creator"}/>}/>
+            <Route exact path="/internships/teachers-assistant" element={<Internships_Category cat={"teacher's assistant"}/>}/>
+            <Route exact path="/internships/graduates-assistant" element={<Internships_Category cat={"graduate's assistant"}/>}/>
           </Routes>
         </main>
         <Footer />
