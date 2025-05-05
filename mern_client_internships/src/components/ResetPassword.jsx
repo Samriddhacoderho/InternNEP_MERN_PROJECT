@@ -49,6 +49,7 @@ const ResetPassword = () => {
       
     } catch (error) {
       if (error.response) {
+        console.log("HI")
         setErr(true)
         useCon.setsucMsg(error.response.data)
       } else {

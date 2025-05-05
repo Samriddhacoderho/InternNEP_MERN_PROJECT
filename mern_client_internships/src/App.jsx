@@ -14,6 +14,7 @@ import PassVerificationForm from "./components/PassVerificationForm";
 import YourCV from "./components/cv_files/YourCV";
 import CreateCV from "./components/cv_files/CreateCV";
 import Internships_Category from "./components/internships_area/Internships_Category";
+import { Button } from "@material-tailwind/react";
 
 
 const App = () => {
